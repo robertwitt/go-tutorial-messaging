@@ -7,6 +7,9 @@ import (
 	"github.com/streadway/amqp"
 )
 
+// SensorDiscoveryExchange name of exchange for sensor discovery
+const SensorDiscoveryExchange = "SensorDiscovery"
+
 // SensorListQueue name of the queue for sensors
 const SensorListQueue = "SensorList"
 
