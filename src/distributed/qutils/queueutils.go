@@ -13,6 +13,9 @@ const SensorDiscoveryExchange = "SensorDiscovery"
 // SensorListQueue name of the queue for sensors
 const SensorListQueue = "SensorList"
 
+// PersistReadingsQueue name of the queue to persist readings
+const PersistReadingsQueue = "PersistReadings"
+
 // GetChannel get new channel
 func GetChannel(url string) (*amqp.Connection, *amqp.Channel) {
 	conn, err := amqp.Dial(url)
@@ -24,8 +27,8 @@ func GetChannel(url string) (*amqp.Connection, *amqp.Channel) {
 }
 
 // GetQueue get new queue
-func GetQueue(name string, ch *amqp.Channel) *amqp.Queue {
-	q, err := ch.QueueDeclare(name, false, false, false, false, nil)
+func GetQueue(name string, ch *amqp.Channel, autoDelete bool) *amqp.Queue {
+	q, err := ch.QueueDeclare(name, false, autoDelete, false, false, nil)
 	failOnError(err, "Failed to declare queue")
 
 	return &q
