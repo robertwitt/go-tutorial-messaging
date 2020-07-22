@@ -16,6 +16,15 @@ const SensorListQueue = "SensorList"
 // PersistReadingsQueue name of the queue to persist readings
 const PersistReadingsQueue = "PersistReadings"
 
+// WebappSourceExchange name of exchange for webapp sources
+const WebappSourceExchange = "WebappSources"
+
+// WebappReadingsExchange name of exchange for webapp readings
+const WebappReadingsExchange = "WebappReadings"
+
+// WebappDiscoveryQueue name pf queue for webapp discovery
+const WebappDiscoveryQueue = "WebappDiscovery"
+
 // GetChannel get new channel
 func GetChannel(url string) (*amqp.Connection, *amqp.Channel) {
 	conn, err := amqp.Dial(url)
